@@ -7,55 +7,55 @@ import anotherPng from './static/another.png'
 const imgs = [burritoPng, spicesPng, anotherPng,]
 const headers = ['Burritos!', 'Ingredients', 'Another Heading']
 const text = [
-    'Some info about burritos.' + lorem.generateParagraphs(2),
-    'Some info about ingredients.' + lorem.generateParagraphs(2),
-    'Some extra info about something.' + lorem.generateParagraphs(2),
+    'Some info about burritos. ' + lorem.generateParagraphs(3),
+    'Some info about ingredients. ' + lorem.generateParagraphs(3),
+    'Some extra info about something. ' + lorem.generateParagraphs(3),
 ]
 
 const content = document.querySelector('#content')
 
 export function loadHome() {
     console.log('loading home');
+    let picOnLeft
+
     for (const headerIdx in headers) {
-        content.appendChild(createHomeDiv(headers[headerIdx], imgs[headerIdx], text[headerIdx]))
+        picOnLeft = headerIdx % 2 === 0
+        content.appendChild(createHomeDiv(
+            headers[headerIdx], imgs[headerIdx], text[headerIdx], picOnLeft))
     }
 }
 
 function createImg(img) {
     const imgElement = document.createElement('img')
     imgElement.src = img
-    imgElement.classList.add('home-img')
+    imgElement.classList.add('Home__Image')
     return imgElement
 }
 
-function createText(header, text) {
-    const textDiv = document.createElement('div')
-
-    const h2 = document.createElement('h2')
-    h2.textContent = header
-
-    const p = document.createElement('p')
-    p.textContent = text
-
-    textDiv.append(h2, p)
-    return textDiv
-}
-
-function createHomeDiv(header, img, text) {
-    // div 
-    //     img
-    //     div  
-    //         h2 /h2 
+function createHomeDiv(header, img, text, picOnLeft=true) {
+    // div
+    //     h2 /h2 
+    //     div 
+    //         img
     //         p /p
-    //     /div 
+    //     /div
     // /div
     const containerDiv = document.createElement('div')
-    containerDiv.classList.add('content-block')
+
+    const homeH2 = document.createElement('h2')
+    homeH2.classList.add('Home__Heading')
+    if (!picOnLeft) homeH2.classList.add('Home__Heading-right')
+    homeH2.textContent = header
+
+    const texdImageDiv = document.createElement('div')
+    texdImageDiv.classList.add('Home__Content')
 
     const imgElement = createImg(img)
 
-    const textDiv = createText(header, text)
+    const homeP = document.createElement('p')
+    homeP.textContent = text
 
-    containerDiv.append(imgElement, textDiv)
+    picOnLeft ? texdImageDiv.append(imgElement, homeP) : texdImageDiv.append(homeP, imgElement)
+    containerDiv.append(homeH2, texdImageDiv)
     return containerDiv
 }

@@ -10,12 +10,12 @@ header {
     border-bottom: 1px solid rgb(169, 169, 169, 0.5);
 }
 
-nav {
+.Navbar {
     display: flex;
     gap: 16px;
 }
 
-nav button {
+.Navbar__Button {
     all: unset; 
     display: inline-block; 
     padding: 0;
@@ -24,12 +24,12 @@ nav button {
     cursor: pointer;
 }
 
-nav button:hover {
+.Navbar__Button:hover {
     border-bottom: 2px solid lightcoral;
     transition: border-color 0.5s ease;
 }
 
-#logo {
+#Logo {
     all: unset;
     color: white;
     margin-left: auto;
@@ -42,16 +42,23 @@ nav button:hover {
     color: white;
 }
 
-.content-block {
+.Home__Content {
     display: flex;
     align-items: center;
 }
 
-.content-block h2 {
-    margin-top: 0;
+.Home__Heading {
+    margin-bottom: 0;
 }
 
-.home-img {
+.Home__Heading-right {
+    text-align: right;
+}
+
+.Home__Image {
     height: 150px;
     width: 150px;
+    border-radius: 10px;
 }
+
+/* menu content */

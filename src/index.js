@@ -20,3 +20,5 @@ function handleNavClick(loadingFunction) {
 home.addEventListener('click', () => {handleNavClick(loadHome)});
 menu.addEventListener('click',  () => {handleNavClick(loadMenu)});
 about.addEventListener('click',  () => {handleNavClick(loadAbout)});
+
+loadHome() // default on home page
