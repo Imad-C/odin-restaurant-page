@@ -3,6 +3,8 @@ body {
     background: black;
 }
 
+/* navbar  */
+
 header {
     padding: 10px 50px 2px 50px;
     border-bottom: 1px solid rgb(169, 169, 169, 0.5);
@@ -13,7 +15,7 @@ nav {
     gap: 16px;
 }
 
-button {
+nav button {
     all: unset; 
     display: inline-block; 
     padding: 0;
@@ -22,7 +24,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+nav button:hover {
     border-bottom: 2px solid lightcoral;
     transition: border-color 0.5s ease;
 }
@@ -33,7 +35,23 @@ button:hover {
     margin-left: auto;
 }
 
+/* home content */
+
 #content {
-    padding: 70px 50px 10px 50px;
+    padding: 40px 50px 10px 50px;
     color: white;
+}
+
+.content-block {
+    display: flex;
+    align-items: center;
+}
+
+.content-block h2 {
+    margin-top: 0;
+}
+
+.home-img {
+    height: 150px;
+    width: 150px;
 }
