@@ -1,4 +1,4 @@
-import { lorem } from './utils'
+import { lorem, content } from './utils'
 import burritoPng from './static/burrito.png'
 import spicesPng from './static/spices.png'
 import anotherPng from './static/another.png'
@@ -11,8 +11,6 @@ const text = [
     'Some info about ingredients. ' + lorem.generateParagraphs(3),
     'Some extra info about something. ' + lorem.generateParagraphs(3),
 ]
-
-const content = document.querySelector('#content')
 
 export function loadHome() {
     console.log('loading home');
@@ -47,15 +45,15 @@ function createHomeDiv(header, img, text, picOnLeft=true) {
     if (!picOnLeft) homeH2.classList.add('Home__Heading-right')
     homeH2.textContent = header
 
-    const texdImageDiv = document.createElement('div')
-    texdImageDiv.classList.add('Home__Content')
+    const textImageDiv = document.createElement('div')
+    textImageDiv.classList.add('Home__Content')
 
     const imgElement = createImg(img)
 
     const homeP = document.createElement('p')
     homeP.textContent = text
 
-    picOnLeft ? texdImageDiv.append(imgElement, homeP) : texdImageDiv.append(homeP, imgElement)
-    containerDiv.append(homeH2, texdImageDiv)
+    picOnLeft ? textImageDiv.append(imgElement, homeP) : textImageDiv.append(homeP, imgElement)
+    containerDiv.append(homeH2, textImageDiv)
     return containerDiv
 }
